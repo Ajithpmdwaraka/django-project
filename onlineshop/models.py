@@ -15,8 +15,8 @@ class Category(models.Model):
     description = models.TextField(max_length=200)
     
     def __str__(self):
-        return self.category_name       
-    
+        return self.category_name
+        
 
 class Product(models.Model):
     product_name = models.CharField(max_length=200)
@@ -30,11 +30,10 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    customer_name = models.CharField(max_length = 200)
+    customer_name = models.CharField(max_length=200)
     customer_email = models.EmailField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
     
     def __str__(self):
-        return f"Order #{id}"      
-    
+        return f"Order #{self.id}"
